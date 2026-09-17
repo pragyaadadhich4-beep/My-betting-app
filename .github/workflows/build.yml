@@ -1,3 +1,4 @@
+
 name: Build APK
 
 on:
@@ -13,8 +14,10 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
+        working-directory: My-betting-app
       - run: flutter build apk --release
+        working-directory: My-betting-app
       - uses: actions/upload-artifact@v4
         with:
           name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: My-betting-app/build/app/outputs/flutter-apk/app-release.apk
